@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+//import { useState } from 'react'
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
 import './App.css'
 import Layout from './components/Layout'
 
@@ -14,9 +14,13 @@ const signList = ["%", "CE", "C", "X",
                          "4", "5", "6", "-", 
                          "1", "2", "3", "+",
                           "+/-", "0", ".", "="];
-const [count, setCount] = useState(0)
+//const [count, setCount] = useState(0)
   return (
     <Layout>
+      <input 
+          type="text"
+          className=" p-4 text-right text-xl border-2 border-gray-300 rounded-md mb-4"
+        />
       {/*<div className="grid grid-cols-4 gap-4">
        這裡面的子元素會自動變成 3 欄排列 
       <div className='rounded-md border-2'>%</div>
