@@ -78,7 +78,7 @@ const getDisplayText=()=>{
         }
       )
       
-}
+    }
     </div>
   </div>
     </Layout>
