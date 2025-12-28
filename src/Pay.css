@@ -1,0 +1,12 @@
+.menu {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 600px;
+  padding: 20px;
+  background-color: #eff7f8;
+  border-radius: 12px;
+}
