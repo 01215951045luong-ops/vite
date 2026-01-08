@@ -28,9 +28,8 @@ const Noodles: Noodle[] = [
 ];
 
 export const Pay: React.FC = () => {
-  const [quantities, setQuantities] = React.useState<Record<number, number>>(
-    {}
-  );
+  const [quantities, setQuantities] = React.useState<Record<number, number>>({});
+  const [showOrder, setShowOrder] = React.useState(false);
 
   const handleQtyChange = (id: number, value: number) => {
     setQuantities((prev) => ({
@@ -38,11 +37,15 @@ export const Pay: React.FC = () => {
       [id]: value < 0 ? 0 : value,
     }));
   };
+  const orderedItems = Noodles.filter(
+  (noodle) => (quantities[noodle.id] || 0) > 0
+);
 
   const totalPrice = Noodles.reduce((total, noodle) => {
     const qty = quantities[noodle.id] || 0;
     return total + qty * noodle.price;
   }, 0);
+
   return (
     
     
@@ -58,19 +61,19 @@ export const Pay: React.FC = () => {
             key={noodle.id}
             className="flex items-center gap-4 mb-4 border-b pb-3"
           >
-            {/* 圖片 */}
+            {/* anh */}
             <img
               src={noodle.image}
               alt={noodle.name}
               className="w-20 h-20 object-cover rounded"
             />
 
-            {/* 資訊 */}
+            {/* thong tin */}
             <div className="flex-1">
               <p className="font-semibold">{noodle.name}</p>
               <p className="text-orange-500 font-medium">{noodle.price} 元</p>
             </div>
-              {/* 數量輸入 */}
+              {/* nhap so luong */}
               <input
                 type="number"
                 min={0}
@@ -87,14 +90,40 @@ export const Pay: React.FC = () => {
       <div className="text-right text-lg font-bold mt-4">
         總金額：{totalPrice} 元
       </div>
-       {/* 🛒 送出訂單按鈕 */}
+       
         <button
-          
+          onClick={() => setShowOrder(true)}
           className="mt-6 w-full bg-orange-500 hover:bg-orange-600
                      text-white py-3 rounded-lg font-semibold transition"
         >
             送出訂單
         </button>
+
+        {showOrder && (
+    <div className="mt-6 p-4 border rounded bg-white">
+    <h4 className="font-bold text-lg mb-3 text-center">
+       訂單內容
+    </h4>
+
+    {orderedItems.map((item) => {
+      const qty = quantities[item.id];
+      return (
+        <div
+          key={item.id}
+          className="flex justify-between border-b py-2"
+        >
+          <span>{item.name} × {qty}</span>
+          <span>{item.price * qty} 元</span>
+        </div>
+      );
+    })}
+
+    <div className="text-right font-bold mt-3">
+      總金額：{totalPrice} 元
+    </div>
+  </div>
+)}
+        
     </div>
    
    
