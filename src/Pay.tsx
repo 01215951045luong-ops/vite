@@ -1,5 +1,15 @@
 import React from "react";
-import './Pay.css'
+import './Pay.css';
+import pho from './assets/images/88.png';
+import ga from './assets/images/90.png';
+import gaxao from './assets/images/91.png';
+import boxao from './assets/images/92.png';
+import canh from './assets/images/93.png';
+import mibo from './assets/images/94.png';
+import chagio from './assets/images/96.png';
+import goicuon from './assets/images/97.png';
+
+
 interface Noodle {
   id: number;
   name: string;
@@ -7,14 +17,14 @@ interface Noodle {
   image: string;
 }
 const Noodles: Noodle[] = [
-  { id: 1, name: "牛肉河粉", price: 140, image:"" },
-  { id: 2, name: "雞肉河粉", price: 120, image:"" },
-  { id: 3, name: "炒雞肉河粉", price: 110, image:"" },
-  { id: 4, name: "炒牛肉河粉", price: 130 , image:""},
-  { id: 5, name: "牛肉湯", price: 100, image:"" },
-  { id: 6, name: "牛肉麵", price: 80, image:"" },
-  { id: 7, name: "炸春捲", price: 80, image:"" },
-  { id: 8, name: "春捲", price: 80, image:"" },
+   { id: 1, name: "牛肉河粉", price: 140, image:pho },
+  { id: 2, name: "雞肉河粉", price: 120, image:ga  },
+   { id: 3, name: "炒雞肉河粉", price: 110, image:gaxao },
+   { id: 4, name: "炒牛肉河粉", price: 130, image:boxao },
+  { id: 5, name: "牛肉湯", price: 80, image:canh },
+   { id: 6, name: "牛肉麵", price: 100, image:mibo},
+   { id: 7, name: "炸春捲", price: 80, image:chagio },
+   { id: 8, name: "春捲", price: 80, image:goicuon },
 ];
 
 export const Pay: React.FC = () => {
@@ -34,6 +44,7 @@ export const Pay: React.FC = () => {
     return total + qty * noodle.price;
   }, 0);
   return (
+    
     
     <div className="menu ">
       <h3 className="text-2xl font-bold mb-6 text-orange-600 text-center"> 菜單</h3>
@@ -78,16 +89,17 @@ export const Pay: React.FC = () => {
       </div>
        {/* 🛒 送出訂單按鈕 */}
         <button
-        
+          
           className="mt-6 w-full bg-orange-500 hover:bg-orange-600
                      text-white py-3 rounded-lg font-semibold transition"
         >
             送出訂單
         </button>
-
-       
-      
     </div>
+   
+   
+
+   
   );
 };
 

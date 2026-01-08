@@ -1,12 +1,22 @@
 .menu {
   position: absolute;
-  top: 80%;
+  top: 50%;           /* sửa từ 80% → 50% */
   left: 50%;
-
   transform: translate(-50%, -50%);
-
   width: 600px;
   padding: 20px;
-  background-color: #eff7f8;
+  background-color: #f4f5f4;
   border-radius: 12px;
+}
+
+.menu img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  display: block;
+}
+body {
+  background-color: #f5bf8d; 
+  margin: 0;
+  height: 100vh;
 }
